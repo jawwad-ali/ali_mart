@@ -2,7 +2,7 @@ from aiokafka import AIOKafkaConsumer
 from app import ProductSchema, product_pb2
 from contextlib import contextmanager
 from sqlmodel import Session
-from protocol_buffering.app.db.dbconnection import engine
+from product_catalog_service.app.db.dbconnection import engine
 
 @contextmanager
 def get_session():

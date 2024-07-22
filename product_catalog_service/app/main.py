@@ -9,7 +9,7 @@ from app.kafka.kafka_producer import get_kafka_producer
 from app.kafka.kafka_consumer import consume_messages
 import asyncio
 
-from protocol_buffering.app.db import dbconnection
+from product_catalog_service.app.db import dbconnection
 
 print("HEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
 
