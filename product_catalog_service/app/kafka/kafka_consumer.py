@@ -28,11 +28,8 @@ async def consume_messages(topic, bootstrap_servers):
     try:
         # Consume messages
         async for msg in consumer:
-            print(f"Received message: {msg.value} on topic {msg.topic}")
-        
             deserialized_product = product_pb2.Product()
             deserialized_product.ParseFromString(msg.value)
-            print("** Deserialized_product **" , deserialized_product)
             
             new_product = ProductSchema.Product(
                 productName=deserialized_product.productName,

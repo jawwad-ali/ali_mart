@@ -1,19 +1,19 @@
 services: 
-  ms1:
+  product_catalog_service:
     build: 
-      context: ./protocol_buffering
+      context: ./product_catalog_service
       dockerfile: Dockerfile
     volumes:
-      - ./protocol_buffering:/code  # Sync local development directory with the container
+      - ./product_catalog_service:/code  # Sync local development directory with the container
     ports: 
       - "8009:8000"  # Expose container port 8000 to host port 8000  
 
-  ms2:
+  order_service:
     build: 
-      context: ./ms_2
+      context: ./order_service
       dockerfile: Dockerfile 
     volumes:
-      - ./ms_2:/code  # Sync local development directory with the container
+      - ./order_service:/code  # Sync local development directory with the container
     ports: 
       - "8010:8000"  # Expose container port 8000 to host port 8000 
 

@@ -4,6 +4,7 @@ FROM python:3.12
 LABEL maintainer="ali-jawwad"
 # Set the working directory in the container
 WORKDIR /code
+
 # Install system dependencies required for potential Python packages
 RUN apt-get update && apt-get install -y \
     build-essential \

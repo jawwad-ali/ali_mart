@@ -5,4 +5,5 @@ message Product {
     int32 productPrice = 2;
     string productDesc = 3;
     int32 inStock = 4;
+    int32 quantity = 5;
 }

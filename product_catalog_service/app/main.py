@@ -10,9 +10,7 @@ from app.kafka.kafka_consumer import consume_messages
 import asyncio
 
 from product_catalog_service.app.db import dbconnection
-
-print("HEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
-
+ 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Creating tables..")
@@ -45,11 +43,8 @@ async def create(data: ProductSchema.Product, producer: Annotated[AIOKafkaProduc
 
     product_protbuf = product_pb2.Product(productName=data.productName, productPrice=data.productPrice , productDesc=data.productDesc, inStock=data.inStock)
     
-    print(f"Todo Prot Buff",product_protbuf)  
-
     # Serizalizing the Message
     serialized_product = product_protbuf.SerializeToString()
-    print(f"Serialized data: {serialized_product}") 
 
     await producer.send_and_wait("product_catalog", serialized_product) 
     return "Successfull" 
